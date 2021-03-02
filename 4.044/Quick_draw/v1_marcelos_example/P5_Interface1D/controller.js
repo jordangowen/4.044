@@ -24,15 +24,15 @@ class Controller {
                 // clear screen at frame rate so we always start fresh      
                 display.clear();
             
-                // show all players in the right place, by adding them to display buffer
-                display.setPixel(playerOne.position, playerOne.playerColor);
-                display.setPixel(playerTwo.position, playerTwo.playerColor);
-                
-
                 // // now add the target
                 display.setPixel(target.position, target.playerColor);
                 display.setPixel(targetTwo.position, targetTwo.playerColor);
                 // display.setPixel(targetTwo.position, targetTwo.playerColor);
+
+                // show all players in the right place, by adding them to display buffer
+                display.setPixel(playerOne.position, playerOne.playerColor);
+                display.setPixel(playerTwo.position, playerTwo.playerColor);
+                
 
                 display.setPixel(bulletOne.position, bulletOne.playerColor);
                 

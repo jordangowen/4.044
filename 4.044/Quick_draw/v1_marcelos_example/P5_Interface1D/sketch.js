@@ -43,12 +43,12 @@ function setup() {
   // playerOne = new Player(color(255,0,0), parseInt(random(0,displaySize)), displaySize);   // Initializing players
   // playerTwo = new Player(color(0,0,255), parseInt(random(0,displaySize)), displaySize);
 
+  target = new Player(color(100), 0, displaySize);    // Initializing target using the Player class 
+  targetTwo = new Player(color(100), 29, displaySize);      // Initializing second target called 
+
   playerOne = new Player(color(255,0,0), 14, displaySize);   // Initializing players at CENTER
   playerTwo = new Player(color(0,0,255), 15, displaySize);
   // playerTrhree = new Player(color(0,255,0), 5, displaySize);
-
-  target = new Player(color(100), 0, displaySize);    // Initializing target using the Player class 
-  targetTwo = new Player(color(100), 29, displaySize);      // Initializing second target called 
 
   bulletOne = new Bullet(color(200), 5, displaySize);
 
