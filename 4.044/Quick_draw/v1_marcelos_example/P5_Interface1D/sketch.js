@@ -18,6 +18,9 @@ let playerOne;    // Adding 2 players to the game
 let playerTwo;
 let playerThree;
 
+let bulletOne;
+let bulletTwo;
+
 let target;       // add one target to left of screen.
 let targetTwo;    // one to the right of the screen
 
@@ -42,12 +45,12 @@ function setup() {
 
   playerOne = new Player(color(255,0,0), 14, displaySize);   // Initializing players at CENTER
   playerTwo = new Player(color(0,0,255), 15, displaySize);
-  // playerThree = new Player(color(0,255,0), 13, displaySize);
+  // playerTrhree = new Player(color(0,255,0), 5, displaySize);
 
+  target = new Player(color(100), 0, displaySize);    // Initializing target using the Player class 
+  targetTwo = new Player(color(100), 29, displaySize);      // Initializing second target called 
 
-  target = new Player(color(255,255,0), 0, displaySize);    // Initializing target using the Player class 
-  targetTwo = new Player(color(255,255,0), 29, displaySize);      // Initializing second target called 
-  // targetTwo = new Player(color(255,255,0), 20, displaySize);    // Initializing target using the Player class 
+  bulletOne = new Bullet(color(200), 5, displaySize);
 
   collisionAnimation = new Animation();     // Initializing animation
 

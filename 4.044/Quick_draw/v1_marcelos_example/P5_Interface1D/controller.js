@@ -6,7 +6,7 @@ class Controller {
 
     // This is the state we start with.
     constructor() {
-        this.gameState = "PLAY";
+        this.gameState = "PACE";
        
     }
     
@@ -19,7 +19,7 @@ class Controller {
         switch(this.gameState) {
 
             // This is the main game state, where the playing actually happens
-            case "PLAY":
+            case "PACE":
 
                 // clear screen at frame rate so we always start fresh      
                 display.clear();
@@ -34,6 +34,7 @@ class Controller {
                 display.setPixel(targetTwo.position, targetTwo.playerColor);
                 // display.setPixel(targetTwo.position, targetTwo.playerColor);
 
+                display.setPixel(bulletOne.position, bulletOne.playerColor);
                 
                 // // check if player has reached the end
                 // if (playerOne.position == target.position)  {
@@ -61,6 +62,11 @@ class Controller {
 
                 break;
 
+            // case "Draw"
+
+
+
+            
             // // This state is used to play an animation, after a target has been caught by a player 
             // case "COLLISION":
                 
