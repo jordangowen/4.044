@@ -20,19 +20,24 @@ class Player {
         // increments or decrements player position
         this.position = this.position + _direction;
       
-
-        // if player hits the edge of display, loop around
-        // if (this.position == 0) {
+        // // if player hits the edge of display, loop around
+        // if (this.position == -1) {
         //     this.position = this.displaySize - 1;
         // } else if (this.position == this.displaySize) {
         //     this.position = 0;
         // } 
 
-        // if player hits the edge of display, stop
-        if (this.position < 0) {
+          // if player hits the edge of display, STOP
+          if (this.position == -1) {
             this.position = 0;
-        } else if (this.position == this.displaySize) {
+        } else if (this.position >= this.displaySize) {
             this.position = this.displaySize - 1;
         } 
+    
+    // move(_speed) {
+    //     this.position = 
+
+    // }
+         
     } 
   }

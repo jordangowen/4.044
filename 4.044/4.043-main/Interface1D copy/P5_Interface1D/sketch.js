@@ -16,7 +16,7 @@ let pixelSize = 20;     // how big should they look on screen
 
 let playerOne;    // Adding 2 players to the game
 let playerTwo;
-let bullet;       // and one target for players to catch.
+let target;       // and one target for players to catch.
 
 let display;      // Aggregates our final visual output before showing it on the screen
 
@@ -37,7 +37,7 @@ function setup() {
   playerOne = new Player(color(255,0,0), parseInt(random(0,displaySize)), displaySize);   // Initializing players
   playerTwo = new Player(color(0,0,255), parseInt(random(0,displaySize)), displaySize);
 
-  bullet = new Player(color(255,255,0), parseInt(random(0,displaySize)), displaySize);    // Initializing target using the Player class 
+  target = new Player(color(255,255,0), parseInt(random(0,displaySize)), displaySize);    // Initializing target using the Player class 
 
   collisionAnimation = new Animation();     // Initializing animation
 

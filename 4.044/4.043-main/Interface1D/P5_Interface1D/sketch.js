@@ -16,8 +16,10 @@ let pixelSize = 20;     // how big should they look on screen
 
 let playerOne;    // Adding 2 players to the game
 let playerTwo;
-let targetOne;       // and one target for players to catch.
-let targetTwo;      // another target
+let playerThree;
+
+let target;       // add one target to left of screen.
+let targetTwo;    // one to the right of the screen
 
 let display;      // Aggregates our final visual output before showing it on the screen
 
@@ -38,14 +40,14 @@ function setup() {
   // playerOne = new Player(color(255,0,0), parseInt(random(0,displaySize)), displaySize);   // Initializing players
   // playerTwo = new Player(color(0,0,255), parseInt(random(0,displaySize)), displaySize);
 
-  playerOne = new Player(color(255,0,0), 14, displaySize);   // Initializing players at center
+  playerOne = new Player(color(255,0,0), 14, displaySize);   // Initializing players at CENTER
   playerTwo = new Player(color(0,0,255), 15, displaySize);
+  // playerThree = new Player(color(0,255,0), 13, displaySize);
 
-  targetOne = new Player(color(255,255,0), parseInt(random(0,displaySize)), displaySize);    // Initializing target using the Player class 
-  
-  // targetOne = new Player(color(255,255,0), 0, displaySize);    // Initializing target1 using the Player class 
-  // targetTwo = new Player(color(255,255,0), 30, displaySize);    // Initializing target1 using the Player class 
 
+  target = new Player(color(255,255,0), 0, displaySize);    // Initializing target using the Player class 
+  targetTwo = new Player(color(255,255,0), 29, displaySize);      // Initializing second target called 
+  // targetTwo = new Player(color(255,255,0), 20, displaySize);    // Initializing target using the Player class 
 
   collisionAnimation = new Animation();     // Initializing animation
 

@@ -7,7 +7,7 @@ class Controller {
     // This is the state we start with.
     constructor() {
         this.gameState = "PLAY";
-        print("yo")
+       
     }
     
     // 
@@ -107,6 +107,8 @@ class Controller {
 }
 
 
+
+// test
 
 // This function gets called when a key on the keyboard is pressed
 function keyPressed() {
