@@ -16,10 +16,10 @@ let pixelSize = 20;     // how big should they look on screen
 
 let playerOne;    // Adding 2 players to the game
 let playerTwo;
-let playerThree;
+// let playerThree;
 
-let bulletOne;
-let bulletTwo;
+// let bulletOne;
+// let bulletTwo;
 
 let target;       // add one target to left of screen.
 let targetTwo;    // one to the right of the screen
@@ -30,8 +30,19 @@ let controller;   // This is where the state machine and software logic lives
 
 let collisionAnimation;   // Where we store and manage the collision animation
 
-let score;        // Where we keep track of score and winner
+// let score;        // Where we keep track of score and winner
 
+let fired1; 
+let fired2;// New variable for who pressed a key — boolean. 0 or 1. Name of the player or other player.
+    // Empty until it is filled by information from the key press
+    //Happens in the Ready to Draw state. Switches states after
+
+let pixel0;
+let pixel29;//New variable for pixel0 and pixel29 — pass the information of who is in it. 
+    //When someone fires, we know who's in the pixel. Who fired tells you which pixel to start animation from.
+
+//In next State, you reference that variable and tell Animation function how to animate
+    //Just needs location of pixel to start the animation from. Not the key press.
 
 
 function setup() {
@@ -49,8 +60,6 @@ function setup() {
   playerOne = new Player(color(255,0,0), 14, displaySize);   // Initializing players at CENTER
   playerTwo = new Player(color(0,0,255), 15, displaySize);
   // playerTrhree = new Player(color(0,255,0), 5, displaySize);
-
-  bulletOne = new Bullet(color(200), 5, displaySize);
 
   collisionAnimation = new Animation();     // Initializing animation
 

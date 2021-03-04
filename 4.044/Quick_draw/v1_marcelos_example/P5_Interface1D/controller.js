@@ -34,41 +34,53 @@ class Controller {
                 display.setPixel(playerTwo.position, playerTwo.playerColor);
                 
 
-                display.setPixel(bulletOne.position, bulletOne.playerColor);
+                // display.setPixel(bulletOne.position, bulletOne.playerColor);
                 
-                // // check if player has reached the end
-                // if (playerOne.position == target.position)  {
-                //     playerOne.score++;              // increment score
-                //     this.gameState = "COLLISION";   // go to COLLISION state
-                // }
-
-                // // // check if player has caught target
-                // // if (playerOne.position == target.position)  {
-                // //     playerOne.score++;              // increment score
-                // //     this.gameState = "COLLISION";   // go to COLLISION state
-                // // }
+                if (playerOne.position == 0 && playerTwo.position == 29) { // check if players are at designated ends
+                    this.gameState = "READYDRAW"; // got to READYDRAW state
+                    console.log ("ReadyDraw");
+                } 
                 
-                // // check if other player has caught target        
-                // if (playerTwo.position == target.position)  {
-                //     playerTwo.score++;              // increment their score
-                //     this.gameState = "COLLISION";   // go to COLLISION state
-                // }
+                // } 
+                //check if pixel0 AND pixel 29 have a player in them. OR check location of players.
+                //Check once every frame. Switch this.gamestate
+                    //where do store this information? Don't need a variable. It's a conditional statement. If these conditions are satisfied, advance the state
+                // if true, NEXT STATE
 
-                // // check if other player has caught target        
-                // if (playerTwo.position == target.position)  {
-                //     playerTwo.score++;              // increment their score
-                //     this.gameState = "COLLISION";   // go to COLLISION state
-                // }
+            case "READYDRAW":
+             if ((key == 'w' || key == 'W') && (playerOne.position == 0 && playerTwo.position == 29)) {
+                 this.gameState = "FIRED";
+                 console.log ("playerOne fired")
+                 this.fired1 == true
+             }
 
-                break;
+             if ((key == 'i' || key == 'I') && (playerOne.position == 0 && playerTwo.position == 29)) {
+                this.gameState = "FIRED";
+                console.log ("playerTwo fired")
+                this.fired2 == true
+            }
+            //     //Both pixel0 and pixel29 are occupied by a Player
+            //     //Lock players in place
+            //     //Listen for a key press
+            //     //Record first key press
+            //     //If a key press happens, the state changes again
+            //         //Information to pass —> Which player presses. If statement:
+            //             //If playerOne presses, pass pixel0. Assign Pixel0 to global variable. 
+            //             //If playerTwo, assign Pixel29 (or display size).
+            //     //Move to "Fired" STATE
+            
+            case "FIRED":
 
-            // case "Draw"
-
-
+            //     display.clear();
+            //     //Get player who press info. Which side/player pressed first
+                //Animate according to information. Direction of motion
+                    //Function — argument could be player or the side of the board that fired. Left or Right.
+                    
+                //State Chage. Back to beginning
 
             
-            // // This state is used to play an animation, after a target has been caught by a player 
-            // case "COLLISION":
+            // This state is used to play an animation, after a target has been caught by a player 
+            // case "FIRED":
                 
             //      // clear screen at frame rate so we always start fresh      
             //      display.clear();
@@ -84,50 +96,10 @@ class Controller {
 
             //     //check if animation is done and we should move on to another state
             //     if (frameToShow == collisionAnimation.animation.length-1)  {
-                    
-            //         // We've hit score max, this player wins
-            //         if (playerOne.score >= score.max) {
-            //             score.winner = playerOne.playerColor;   // store winning color in score.winner
-            //             this.gameState = "SCORE";               // go to state that displays score
-                    
-            //         // We've hit score max, this player wins
-            //         } else if (playerTwo.score >= score.max) {
-            //             score.winner = playerTwo.playerColor;   // store winning color in score.winner
-            //             this.gameState = "SCORE";               // go to state that displays score
+                
+            //         this.gameState = "PACE"; // Game is OVER
+            //     }
 
-            //         // // We haven't hit the max score yet, keep playing    
-            //         // } else {
-            //         //     target.position = parseInt(random(0,displaySize));  // move the target to a new random position
-            //         //     this.gameState = "PLAY";    // back to play state
-            //         // }
-
-            //         //Targets back at beginning positions
-            //         } else {
-            //         target.position = 0,displaySize;  // move the target to starting position
-            //         this.gameState = "PLAY";    // back to play state
-            //         }
-            //     } 
-
-            //     break;
-
-            // // Game is over. Show winner and clean everything up so we can start a new game.
-            // case "SCORE":       
-            
-            //     // reset everyone's score
-            //     playerOne.score = 0;
-            //     playerTwo.score = 0;
-
-            //     // put the target back at start
-            //     target.position = 0,displaySize;
-
-            //     //light up w/ winner color by populating all pixels in buffer with their color
-            //     display.setAllPixels(score.winner);                    
-
-            //     break;
-
-            // // Not used, it's here just for code compliance
-            // default:
-            //     break;
         }
     }
 }
@@ -156,9 +128,25 @@ function keyPressed() {
     if (key == 'L' || key == 'l') {
     playerTwo.move(1);
     }
+
+    // if (key == 'W' || key == 'w') {
+    //     this.gameState = "FIRED";
+    //     console.log ("playOne Fired");
+    //     console.log ("Move to FIRED state")
+    //     } else {
+    //         this.gameState = "PACE"
+    //     }
     
+    // if (key == 'I' || key == 'i') {
+    //     this.gameState = "FIRED"
+    //     console.log ("playerTwo Fired");
+    //     console.log ("Move to FIRED state")
+    //     } else {
+    //         this.gameState = "PACE"
+    //     }
+
     // When you press the letter R, the game resets back to the play state
     if (key == 'R' || key == 'r') {
-    controller.gameState = "PLAY";
+    controller.gameState = "PACE";
     }
   }
