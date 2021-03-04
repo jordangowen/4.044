@@ -31,16 +31,22 @@ class Animation {
         // Then populate array with animation
         
         // Start from the center
-        let center = parseInt(this.pixels/2);
+        let length = parseInt(this.pixels);
         
         // Animate to the right
-        this.animation[i][k+center] = color(255, 255, 0);
+        if (fired1 = 1) {
+            this.animation[i][k] = color(255, 255, 0);
+            k=k+1
+        }
 
         // Animate to the left
-        this.animation[i][center-k] = color(255, 255, 0);
-        
+        if (fired2 = 2) {
+            this.animation[i][length-k] = color(0, 255, 0);
+            k = k+1;
+        }
+
         // Increment animation pixel
-        k = k+1;
+        // k = k+1;
     }
 
     }

@@ -47,17 +47,24 @@ class Controller {
                     //where do store this information? Don't need a variable. It's a conditional statement. If these conditions are satisfied, advance the state
                 // if true, NEXT STATE
 
+            break;    
+
             case "READYDRAW":
+            print(fired1);
+            print(fired2);
+            fired1=0;
+            fired2=0;
+
              if ((key == 'w' || key == 'W') && (playerOne.position == 0 && playerTwo.position == 29)) {
                 this.gameState = "FIRED"; 
-                console.log ("playerOne fired")
-                this.fired1 == true
+                console.log ("playerOne fired");
+                fired1 = 1;
              }
 
              if ((key == 'i' || key == 'I') && (playerOne.position == 0 && playerTwo.position == 29)) {
                 this.gameState = "FIRED";
-                console.log ("playerTwo fired")
-                this.fired2 == true
+                console.log ("playerTwo fired");
+                fired2 = 2;
             }
             //     //Both pixel0 and pixel29 are occupied by a Player
             //     //Lock players in place
@@ -69,14 +76,20 @@ class Controller {
             //             //If playerTwo, assign Pixel29 (or display size).
             //     //Move to "Fired" STATE
             
-            case "FIRED":
-            if (this.fired1 == true) {
-                console.log ("playerOne wins")
-            }
+            break;
 
-            if (this.fired2 == true) {
-                console.log ("playerTwo wins")
-            }
+            // case "FIRED":
+            // print("playerOne wins");
+
+            // // if (this.fired1 === true) {
+            // //     console.log ("playerOne wins");
+            // // }
+
+            // // if (this.fired2 === true) {
+            // //     console.log ("playerTwo wins");
+            // // }
+
+            // noLoop();
 
             //     display.clear();
             //     //Get player who press info. Which side/player pressed first
@@ -87,25 +100,27 @@ class Controller {
 
             
             // This state is used to play an animation, after a target has been caught by a player 
-            // case "FIRED":
+            case "FIRED":
                 
-            //      // clear screen at frame rate so we always start fresh      
-            //      display.clear();
+                 // clear screen at frame rate so we always start fresh      
+                 display.clear();
+                print(fired1);
+                print(fired2);
+                // play explosion animation one frame at a time.
+                // first figure out what frame to show
+                let frameToShow = collisionAnimation.currentFrame();    // this grabs number of current frame and increments it 
+                
+                // then grab every pixel of frame and put it into the display buffer
+                for(let i = 0; i < collisionAnimation.pixels; i++) {
+                    display.setPixel(i,collisionAnimation.animation[frameToShow][i]);                    
+                }
 
-            //     // play explosion animation one frame at a time.
-            //     // first figure out what frame to show
-            //     let frameToShow = collisionAnimation.currentFrame();    // this grabs number of current frame and increments it 
-                
-            //     // then grab every pixel of frame and put it into the display buffer
-            //     for(let i = 0; i < collisionAnimation.pixels; i++) {
-            //         display.setPixel(i,collisionAnimation.animation[frameToShow][i]);                    
-            //     }
-
-            //     //check if animation is done and we should move on to another state
-            //     if (frameToShow == collisionAnimation.animation.length-1)  {
-                
-            //         this.gameState = "PACE"; // Game is OVER
-            //     }
+                //check if animation is done and we should move on to another state
+                if (frameToShow == collisionAnimation.animation.length-1)  {
+                    fired1 = 0;
+                    fired2 = 0;
+                    this.gameState = "PACE"; // Game is OVER
+                }
 
         }
     }
