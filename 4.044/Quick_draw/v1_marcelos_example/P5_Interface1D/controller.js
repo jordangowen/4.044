@@ -37,8 +37,8 @@ class Controller {
                 // display.setPixel(bulletOne.position, bulletOne.playerColor);
                 
                 if (playerOne.position == 0 && playerTwo.position == 29) { // check if players are at designated ends
-                    this.gameState = "READYDRAW"; // got to READYDRAW state
                     console.log ("ReadyDraw");
+                    this.gameState = "READYDRAW"; // got to READYDRAW state
                 } 
                 
                 // } 
@@ -49,15 +49,16 @@ class Controller {
 
             case "READYDRAW":
              if ((key == 'w' || key == 'W') && (playerOne.position == 0 && playerTwo.position == 29)) {
-                 this.gameState = "FIRED";
                  console.log ("playerOne fired")
                  this.fired1 == true
+                 this.gameState = "FIRED";
              }
 
              if ((key == 'i' || key == 'I') && (playerOne.position == 0 && playerTwo.position == 29)) {
-                this.gameState = "FIRED";
                 console.log ("playerTwo fired")
                 this.fired2 == true
+                this.gameState = "FIRED";
+
             }
             //     //Both pixel0 and pixel29 are occupied by a Player
             //     //Lock players in place
@@ -70,6 +71,7 @@ class Controller {
             //     //Move to "Fired" STATE
             
             case "FIRED":
+            
 
             //     display.clear();
             //     //Get player who press info. Which side/player pressed first
