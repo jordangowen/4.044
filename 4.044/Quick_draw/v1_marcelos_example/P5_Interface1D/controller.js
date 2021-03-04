@@ -55,13 +55,13 @@ class Controller {
             fired1=0;
             fired2=0;
 
-             if ((key == 'w' || key == 'W') && (playerOne.position == 0 && playerTwo.position == 29)) {
+             if ((key == 'w' || key == 'W') && (this.gameState == "READYDRAW")) {
                 this.gameState = "FIRED"; 
                 console.log ("playerOne fired");
                 fired1 = 1;
              }
 
-             if ((key == 'i' || key == 'I') && (playerOne.position == 0 && playerTwo.position == 29)) {
+             if ((key == 'i' || key == 'I') && (this.gameState == "READYDRAW")) {
                 this.gameState = "FIRED";
                 console.log ("playerTwo fired");
                 fired2 = 2;
@@ -103,7 +103,7 @@ class Controller {
             case "FIRED":
                 
                  // clear screen at frame rate so we always start fresh      
-                 display.clear();
+                display.clear();
                 print(fired1);
                 print(fired2);
                 // play explosion animation one frame at a time.

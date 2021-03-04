@@ -32,8 +32,8 @@ let collisionAnimation;   // Where we store and manage the collision animation
 
 // let score;        // Where we keep track of score and winner
 
-let fired1; 
-let fired2;// New variable for who pressed a key — boolean. 0 or 1. Name of the player or other player.
+let fired1 = 0; 
+let fired2 = 0;// New variable for who pressed a key — boolean. 0 or 1. Name of the player or other player.
     // Empty until it is filled by information from the key press
     //Happens in the Ready to Draw state. Switches states after
 

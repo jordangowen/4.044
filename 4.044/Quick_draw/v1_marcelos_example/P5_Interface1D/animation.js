@@ -34,10 +34,10 @@ class Animation {
         let length = parseInt(this.pixels);
         
         // Animate to the right
-        if (fired1 = 1) {
-            this.animation[i][k] = color(255, 255, 0);
-            k=k+1
-        }
+        // if (fired1 = 1) {
+        //     this.animation[i][k] = color(255, 255, 0);
+        //     k=k+1
+        // }
 
         // Animate to the left
         if (fired2 = 2) {
